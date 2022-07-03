@@ -98,51 +98,83 @@ DATABASES = {
 Django Crispy forms : for forms visual appearance and Validation.
 ## Screenshots
 
-User Signup/Register ( confirmation Email will be sent to email address.  ) 
+User Signup/Register ( confirmation Email will be sent to email address.  )
+<kbd> 
 ![App Screenshot](https://github.com/vivekbhoye/elchemy-contact-crm/blob/master/Screenshots/Signup_View.png?raw=True)
+</kbd>
 
 User Email sent \
+<kbd>
 ![App Screenshot](https://github.com/vivekbhoye/elchemy-contact-crm/blob/master/Screenshots/mail_sent.png?raw=True)
+</kbd>
 
 Mail Confirmation \
+<kbd>
 ![App Screenshot](https://github.com/vivekbhoye/elchemy-contact-crm/blob/master/Screenshots/confirm_link.png?raw=True)
+</kbd>
 
 User Login Page
+<kbd>
 ![App Screenshot](https://github.com/vivekbhoye/elchemy-contact-crm/blob/master/Screenshots/Login_View.png?raw=True)
+</kbd>
 
 Logged in User View 
+<kbd>
 ![App Screenshot](https://github.com/vivekbhoye/elchemy-contact-crm/blob/master/Screenshots/Login_User_Home_View.png?raw=True)
+</kbd>
 
 Add Customer 
+<kbd>
 ![App Screenshot](https://github.com/vivekbhoye/elchemy-contact-crm/blob/master/Screenshots/Create_Customer.png?raw=True)
+</kbd>
 
 Update Customer 
+<kbd>
 ![App Screenshot](https://github.com/vivekbhoye/elchemy-contact-crm/blob/master/Screenshots/Update_Customer.png?raw=True)
+</kbd>
 
 Delete Customer 
+<kbd>
 ![App Screenshot](https://github.com/vivekbhoye/elchemy-contact-crm/blob/master/Screenshots/Delete_Customer.png?raw=True)
+</kbd>
 
 Particular Customer Communication View ( all communication with that customer are listed )
+<kbd>
 ![App Screenshot](https://github.com/vivekbhoye/elchemy-contact-crm/blob/master/Screenshots/Particular_Customer_Communications.png?raw=True)
+</kbd>
 
 Particular Customer's create new Communication ( here Customer Nana patekar's new communication)
+<kbd>
 ![App Screenshot](https://github.com/vivekbhoye/elchemy-contact-crm/blob/master/Screenshots/Create_Communication_For_Particular_Customer.png?raw=True)
+</kbd>
 
 Communication Update View
+<kbd>
 ![App Screenshot](https://github.com/vivekbhoye/elchemy-contact-crm/blob/master/Screenshots/Update_Communication_For_Particular_Customer.png?raw=True)
-   
+</kbd>
+
 Communication Delete View
+<kbd>
 ![App Screenshot](https://github.com/vivekbhoye/elchemy-contact-crm/blob/master/Screenshots/Delete_Communication_For_Particular_Customer.png?raw=True)
-   
+</kbd>
+
 Communication Send email to that customer View
+<kbd>
 ![App Screenshot](https://github.com/vivekbhoye/elchemy-contact-crm/blob/master/Screenshots/Sendmail_Communication_For_Particular_Customer.png?raw=True)
-   
+</kbd>
+
 All communications View 
+<kbd>
 ![App Screenshot](https://github.com/vivekbhoye/elchemy-contact-crm/blob/master/Screenshots/All_Communications.png?raw=True)
+</kbd>
 
 new Communication for any Customer choose View
+<kbd>
 ![App Screenshot](https://github.com/vivekbhoye/elchemy-contact-crm/blob/master/Screenshots/any_new_communication.png?raw=True)
+</kbd>
 
 Anonymous User View 
+<kbd>
 ![App Screenshot](https://github.com/vivekbhoye/elchemy-contact-crm/blob/master/Screenshots/Anonymous_User_View.png?raw=True)
+</kbd>
 
