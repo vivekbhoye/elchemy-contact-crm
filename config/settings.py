@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,7 +21,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-9(sc5r8&pjj9@0ts+77i(wger_mr60jo*$-#%xiyh=c2+93e=#'
+SECRET_KEY = os.environ.get('ELCHEMY_CRM_SECRET_KEY')
+# SECRET_KEY = 'django-insecure-9(sc5r8&pjj9@0ts+77i(wger_mr60jo*$-#%xiyh=c2+93e=#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # third-party apps
+    'crispy_forms',
 
     # local apps
     'accounts',
@@ -77,13 +82,23 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'contact_crm',
+        'USER': os.environ.get('POSTGRES_USER'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -129,6 +144,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # to connect CustomUser with Auth user Model
 AUTH_USER_MODEL = "accounts.CustomUser"
 
+# LOGIN URL
+LOGIN_URL = "login"
 # LOGIN REDIRECT URL
 LOGIN_REDIRECT_URL = "home"
 # LOGOUT REDIRECT URL
@@ -139,7 +156,9 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp-relay.sendinblue.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'jakeperaltab90@gmail.com'
-EMAIL_HOST_PASSWORD = 'yG1zj9MdBObJrxCI'
-# EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
-# EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')
+EMAIL_HOST_USER = os.environ.get('SENDINBLUE_EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('SENDINBLUE_EMAIL_HOST_PASSWORD')
+
+
+# Crispy template pack which to used
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

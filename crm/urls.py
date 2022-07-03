@@ -7,7 +7,7 @@ from .views import (home,CustomerListView,CustomerCreateView,CustomerUpdateView,
 
 urlpatterns = [
     # path('',home.as_view(),name='home'),
-    path('customers/',CustomerListView.as_view(),name='home'),
+    path('',CustomerListView.as_view(),name='home'),
     # path('customers/',CustomerListView.as_view(),name='customer-info'),
     path('customers/create/',CustomerCreateView.as_view(),name='customer-create'),
     path('customers/update/<int:pk>/',CustomerUpdateView.as_view(),name='customer-update'),

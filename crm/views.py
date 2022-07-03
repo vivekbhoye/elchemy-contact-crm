@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render,redirect
 from django.views.generic import TemplateView,ListView,DeleteView,UpdateView,CreateView,View
 from django.urls import reverse_lazy,reverse
@@ -19,19 +20,19 @@ class CustomerListView(ListView):
     context_object_name = "customers"
 
 # To create Customer
-class CustomerCreateView(CreateView):
+class CustomerCreateView(LoginRequiredMixin,CreateView):
     model = Customer
     template_name = "crm/customer_create.html"
     fields = '__all__'
 
 # to Delete Customer
-class CustomerDeleteView(DeleteView):
+class CustomerDeleteView(LoginRequiredMixin,DeleteView):
     model = Customer
     template_name = "crm/customer_delete.html"
     success_url = reverse_lazy('home')
 
 # to Update Customer
-class CustomerUpdateView(UpdateView):
+class CustomerUpdateView(LoginRequiredMixin,UpdateView):
     model = Customer
     fields ='__all__'
     template_name = "crm/customer_update.html"
@@ -53,13 +54,13 @@ class CustomerCommunicationListView(ListView):
         return context
     
 # To create Customer Communication 
-class CommunicationCreateView(CreateView):
+class CommunicationCreateView(LoginRequiredMixin,CreateView):
     model = Communication
     template_name = "crm/communication_create.html"
     fields = '__all__'
 
 # To Delete Customer Communication 
-class CommunicationDeleteView(DeleteView):
+class CommunicationDeleteView(LoginRequiredMixin,DeleteView):
     model = Communication
     template_name = "crm/communication_delete.html"
     # success_url = reverse_lazy("customer-communication",kwargs ={'pk' : self.pk})
@@ -69,12 +70,12 @@ class CommunicationDeleteView(DeleteView):
         return reverse_lazy("customer-communication",kwargs ={'pk' : customer.pk})
 
 # To Update Customer Communication 
-class CommunicationUpdateView(UpdateView):
+class CommunicationUpdateView(LoginRequiredMixin,UpdateView):
     model = Communication
     fields = '__all__'
     template_name = "crm/communication_update.html"
 
-class SendEmailView(View):
+class SendEmailView(LoginRequiredMixin,View):
     def get(self,request,pk,*args, **kwargs):
         form = EmailForm()
         #  to get email of customer to show in front-end
