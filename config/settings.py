@@ -22,11 +22,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('ELCHEMY_CRM_SECRET_KEY')
-# SECRET_KEY = 'django-insecure-9(sc5r8&pjj9@0ts+77i(wger_mr60jo*$-#%xiyh=c2+93e=#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# if not DEBUG:
+#     ALLOWED_HOSTS = ['127.0.0.1']
+# else:
 ALLOWED_HOSTS = []
 
 
@@ -82,12 +84,6 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 
 DATABASES = {
     'default': {
@@ -162,3 +158,20 @@ EMAIL_HOST_PASSWORD = os.environ.get('SENDINBLUE_EMAIL_HOST_PASSWORD')
 
 # Crispy template pack which to used
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+# setting for production ready code
+if DEBUG:
+    SESSION_COOKIE_SECURE = False
+    SECURE_HSTS_SECONDS = False
+    CSRF_COOKIE_SECURE = False
+    SECURE_HSTS_PRELOAD = False
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = False
+    SECURE_SSL_REDIRECT = False
+# else:
+#     SESSION_COOKIE_SECURE = True
+#     SECURE_HSTS_SECONDS = True
+#     CSRF_COOKIE_SECURE = True
+#     SECURE_HSTS_PRELOAD = True
+#     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+#     SECURE_SSL_REDIRECT = True

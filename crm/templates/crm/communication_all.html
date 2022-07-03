@@ -8,11 +8,10 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h2>Customer : {{ customer.full_name }} Communications</h2>
-      
+      <h2>All Communications</h2>
     </div>
     <div class="col">
-      <h2><a href="{% url 'communication-create' customer.pk %}" type="button" class="btn btn-primary" style="float: right ;">Add Customer Communication</a></h2>
+      <h2><a href="{% url 'communications-create-any' %}" type="button" class="btn btn-primary" style="float: right ;">Add Communication</a></h2>
     </div>
 
   </div>

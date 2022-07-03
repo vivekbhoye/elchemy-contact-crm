@@ -57,13 +57,23 @@ class CustomerCommunicationListView(ListView):
 class CommunicationCreateView(LoginRequiredMixin,CreateView):
     model = Communication
     template_name = "crm/communication_create.html"
-    fields = '__all__'
+    fields = ['comm_detail','timestamp']
+
+    def form_valid(self,form):
+        form.instance.customer = Customer.objects.get(pk =self.kwargs.get('pk'))
+        return super().form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        customer = get_object_or_404(Customer,pk=self.kwargs.get('pk'))
+        context['customer'] = customer
+        return context
+        
 
 # To Delete Customer Communication 
 class CommunicationDeleteView(LoginRequiredMixin,DeleteView):
     model = Communication
     template_name = "crm/communication_delete.html"
-    # success_url = reverse_lazy("customer-communication",kwargs ={'pk' : self.pk})
 
     def get_success_url(self):
         customer = self.object.customer
@@ -126,4 +136,16 @@ class SendEmailView(LoginRequiredMixin,View):
         }
         return render(request,'crm/send_email.html',context)
 
+
+# to show all communications
+
+class CommunicationListView(ListView):
+    model = Communication
+    template_name = "crm/communication_all.html"
+    context_object_name = 'communications'
+
+class CommunicationAnyCustomerCreateView(LoginRequiredMixin,CreateView):
+    model = Communication
+    fields = '__all__'
+    template_name = "crm/communication_create_any.html"
 

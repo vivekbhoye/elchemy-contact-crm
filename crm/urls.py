@@ -2,7 +2,7 @@ from django.urls import path
 
 from .views import (home,CustomerListView,CustomerCreateView,CustomerUpdateView,CustomerDeleteView, 
     CustomerCommunicationListView,CommunicationUpdateView,CommunicationDeleteView,CommunicationCreateView,
-    SendEmailView,
+    SendEmailView,CommunicationListView,CommunicationAnyCustomerCreateView
     )
 
 urlpatterns = [
@@ -17,7 +17,9 @@ urlpatterns = [
     # customer/communication/communication_id/
     path('customers/communication/update/<int:pk>/',CommunicationUpdateView.as_view(),name='communication-update'),
     path('customers/communication/delete/<int:pk>/',CommunicationDeleteView.as_view(),name='communication-delete'),
-    path('customers/communication/create/',CommunicationCreateView.as_view(),name='communication-create'),
+    path('customers/communication/create/<int:pk>/',CommunicationCreateView.as_view(),name='communication-create'),
     path('customers/communication/sendemail/<int:pk>/',SendEmailView.as_view(),name='send-email'),
-
+    # all communications
+    path('communications/',CommunicationListView.as_view(),name='communications'),
+    path('communications/create/',CommunicationAnyCustomerCreateView.as_view(),name='communications-create-any'),
 ]
