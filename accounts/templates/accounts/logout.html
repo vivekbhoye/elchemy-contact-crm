@@ -1,0 +1,28 @@
+{% extends "crm/base.html" %}
+
+{% block title %}
+  Logout
+{% endblock title %}
+
+{% block content %}
+ 
+  <h1> 
+    Logout
+</h1> 
+<div class="container">
+
+  <form action="" method="post">
+      {% csrf_token %}
+      <div class="my-2">
+        <p>Are you sure you want to Logout ?</p>
+      </div>
+
+      <!-- {{ form }} -->
+      <div class="my-2">
+
+          <button type="submit" class="btn btn-primary">Logout</button>
+      </div>
+  </form>
+</div>
+{% endblock content %}
+
